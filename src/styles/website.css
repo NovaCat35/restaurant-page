@@ -1,5 +1,47 @@
+:root {
+   --navbar-background: black;
+   --footer-background: black;
+}
+
+* {
+   box-sizing: border-box;
+   margin: 0;
+}
+
+
+#content {
+   min-height: 100vh;
+   display: flex;
+   flex-direction: column;
+}
+
+/*** NAV BAR ***/
+.navbar-container {
+   background-color: var(--navbar-background);
+   padding: 30px;
+   color: white;
+   display: flex;
+   align-items: center;
+}
 ul.list {
    list-style: none;
    display: flex;
    justify-content: space-evenly;
+   flex: 1;
+   gap: 10px;
+}
+li {
+   transition: all .3s ease-in-out;
+}
+li:hover {
+   color: rgb(81, 130, 198);
+}
+
+/*** FOOTER ***/
+footer {
+   display: flex;
+   justify-content: center;
+   color: white;
+   background-color: var(--footer-background);
+   padding: 10px;
 }

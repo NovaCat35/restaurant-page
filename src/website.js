@@ -1,4 +1,6 @@
 import createHomepage from "./home.js";
+import "./styles/website.css";
+
 
 export default function () {
 	const content = document.querySelector("#content");
@@ -23,6 +25,11 @@ function createNav() {
 	list.appendChild(home);
 	list.appendChild(menu);
 	list.appendChild(contact);
+
+   const name = createElement("h2", 'restaurant-name')
+   name.textContent = "Taste_Of_Teyvat"
+
+   navbar.append(name)
    navbar.appendChild(list);
 
 	return navbar;
@@ -35,7 +42,7 @@ function createMain() {
 function createFooter() {
 	const footer = createElement("footer", "footer-container");
 	const footerDescription = createElement("p", "credit");
-	footerDescription.textContent = "Made with ❤️ NovaCat35";
+	footerDescription.textContent = "Made with ❤️ by NovaCat35";
    footer.appendChild(footerDescription);
 	return footer;
 }
