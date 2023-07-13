@@ -1,0 +1,17 @@
+.contact-container {
+	width: 100vw;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+}
+
+.phone-icon {
+   width: 25px;
+}
+.tele-container {
+	display: flex;
+   justify-content: center;
+   align-items: center;
+}
+

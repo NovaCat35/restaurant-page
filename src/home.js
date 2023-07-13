@@ -45,7 +45,7 @@ function createInfo() {
 
 function createBtn() {
 	const btn = createElement("button", "order-btn");
-	btn.textContent = "Order Now!";
+	btn.textContent = "Order Today!";
 	return btn;
 }
 
