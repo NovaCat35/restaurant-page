@@ -1,4 +1,5 @@
 import foodImg from "./assets/xiangling-shorts.jpeg";
+import createMenu from "./menu.js";
 import "./styles/home.css";
 
 // Create Heading
@@ -46,6 +47,7 @@ function createInfo() {
 function createBtn() {
 	const btn = createElement("button", "order-btn");
 	btn.textContent = "Order Today!";
+	btn.addEventListener('click', createMenu)
 	return btn;
 }
 

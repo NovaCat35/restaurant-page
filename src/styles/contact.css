@@ -6,12 +6,35 @@
    align-items: center;
 }
 
+/* PHONE */
+.phone-info-container {
+   display: flex;
+   gap: 30px;
+   margin-bottom: 10px;
+}
 .phone-icon {
    width: 25px;
 }
 .tele-container {
 	display: flex;
-   justify-content: center;
    align-items: center;
 }
 
+/* Store Hours */
+.store-hr-container {
+   width: 50vw;
+}
+.schedule-container {
+   display: flex;
+   justify-content: space-between;
+}
+
+/* MAP */
+.map {
+   width: 350px;
+   height: 350px;
+ }
+
+/* @media screen and (min-width: 400px){
+   
+} */
