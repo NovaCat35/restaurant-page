@@ -1,5 +1,7 @@
 :root {
 	--btn-background: rgb(252, 178, 16);
+   --btn-hover-background: rgb(218, 212, 204);
+   --infos-background: rgba(0, 0, 0, 0.808);
 }
 
 /*** MAIN ***/
@@ -28,6 +30,9 @@ main.home{
 
 }
 .info{
+   background-color: var(--infos-background);
+   padding: 10px;
+   border-radius: 10px;
    text-align: center;
    margin-bottom: 20px;
 }
@@ -42,4 +47,13 @@ main.home{
    border-radius: 10px;
 	padding: 15px 20px;
    font-size: 20px;
+   transition: all .3s ease-in-out;
+}
+.order-btn:hover {
+   cursor: pointer;
+	background-color: var(--btn-hover-background);
+   transform: translateY(-3px);
+}
+.order-btn:active {
+   transform: translateY(5px);
 }

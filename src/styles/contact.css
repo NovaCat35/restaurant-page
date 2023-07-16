@@ -10,6 +10,10 @@
    align-items: center;
 }
 
+.contact-title{
+   color: black;
+}
+
 .contact-info-container {
    display: flex;
    flex-direction: column;

@@ -21,7 +21,7 @@ function createContact() {
 }
 
 function createTitle() {
-	const title = createElement("h1", "title");
+	const title = createElement("h1", "contact-title");
 	title.textContent = "Contact Us";
 	contactContainer.appendChild(title);
 }

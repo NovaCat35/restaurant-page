@@ -33,11 +33,13 @@ ul.list {
    gap: 10px;
 }
 li {
+   font-size: 1.1rem;
    transition: all .3s ease-in-out;
 }
 li:hover {
    cursor: pointer;
-   color: rgb(81, 130, 198);
+   color: rgb(80, 195, 191);
+   transform: scale(1.2);
 }
 
 /*** MAIN ***/
