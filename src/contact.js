@@ -2,13 +2,16 @@ import teleSvg from "./assets/telephone.svg";
 import "./styles/contact.css";
 
 let contactContainer = null;
+let contactInfoContainer = null;
+
 
 function createContact() {
 	const mainContainer = document.querySelector(".main-container");
    contactContainer = createElement("div", "contact-container");
+   contactInfoContainer = createElement("div", "contact-info-container");
 
 	clearMain(mainContainer);
-
+	removeHomeClassList(mainContainer)
    createTitle()
    createPhoneInfo()
    createStoreHrInfo();
@@ -27,23 +30,36 @@ function createMap() {
    const mapContainer = createElement("div", "map");
    contactContainer.appendChild(mapContainer);
 
-   // Create map options
-   const mapOptions = {
-      center: { lat: 41.0368445901921, lng: -74.63686236140164 }, // Coordinates for 4 Main Street, Sparta NJ
-      zoom: 15
-   };
+   const apiKey = process.env.API_KEY;
 
-   // Create the map 
-   const map = new google.maps.Map(mapContainer, mapOptions);
-   // Add a marker for the restaurant's location
-   const marker = new google.maps.Marker({
-      position: { lat: 41.0368445901921, lng: -74.63686236140164 }, // Coordinates for 4 Main Street, Sparta NJ
-      map: map,
-      title: "Restaurant"
-   });
+   // Create the script element
+   const script = document.createElement("script");
+   script.src = `https://maps.googleapis.com/maps/api/js?key=${apiKey}&callback=initMap`;
+   script.async = true;
+   script.defer = true;
+   document.head.appendChild(script);
+
+   window.initMap = function () {
+      // Create map options
+      const mapOptions = {
+         center: { lat: 41.0368445901921, lng: -74.63686236140164 }, // Coordinates for 4 Main Street, Sparta NJ
+         zoom: 16
+      };
+
+      // Create the map 
+      const map = new google.maps.Map(mapContainer, mapOptions);   
+      // Add a marker for the restaurant's location
+      const marker = new google.maps.Marker({
+         position: { lat: 41.0368445901921, lng: -74.63686236140164 }, // Coordinates for 4 Main Street, Sparta NJ
+         map: map,
+         title: "Restaurant"
+      });
+   }
 }
 
-
+function removeHomeClassList(mainContainer) {
+	mainContainer.classList.remove('home')
+}
 
 function createStoreHrInfo() {
    const storeHrContainer = createElement("div", "store-hr-container");
@@ -51,7 +67,8 @@ function createStoreHrInfo() {
 	for (let i = 0; i < 4; i++) {
 		storeHrContainer.appendChild(schedules[i]);
 	}
-	contactContainer.appendChild(storeHrContainer);
+	contactInfoContainer.appendChild(storeHrContainer);
+   contactContainer.appendChild(contactInfoContainer);
 }
 
 function createSchedule(day, time) {
@@ -73,7 +90,7 @@ function createPhoneInfo() {
 	const tele2 = createTeleElement("973-729-2213");
 	phoneInfoContainer.appendChild(tele1);
 	phoneInfoContainer.appendChild(tele2);
-	contactContainer.appendChild(phoneInfoContainer);
+	contactInfoContainer.appendChild(phoneInfoContainer);
 }
 
 function createTeleElement(number) {

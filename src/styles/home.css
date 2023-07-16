@@ -10,8 +10,13 @@ main {
 	align-items: center;
    justify-content: center;
 }
+main.home{
+   background: url('../assets/bokeh-light.jpg');
+   background-position: center;
+   background-size: cover;
+}
 .title {
-   margin-bottom: 10px;
+   margin: 15px 0 20px;
 }
 .info-container {
    padding: 20px;
@@ -20,10 +25,11 @@ main {
    flex-direction: column;
    justify-content: center;
    align-items: center;
+
 }
 .info{
    text-align: center;
-   margin-bottom: 10px;
+   margin-bottom: 20px;
 }
 .xiangling {
 	width: 50vw;

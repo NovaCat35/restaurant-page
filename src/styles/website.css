@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Allerta+Stencil&family=Bagel+Fat+One&family=Beth+Ellen&family=Bona+Nova&family=Cabin+Sketch:wght@400;700&family=Courier+Prime&family=Crimson+Text&family=Dancing+Script:wght@400;700&family=Ewert&family=Fasthand&family=Fredericka+the+Great&family=Libre+Baskerville&family=Lily+Script+One&family=Lora&family=Merriweather:wght@400;900&family=Monoton&family=Playfair+Display:wght@400;500&family=Quicksand&family=Raleway&family=Righteous&family=Rubik+Pixels&family=Special+Elite&family=Work+Sans:wght@300;400&display=swap');
 :root {
    --navbar-background: black;
    --footer-background: black;
@@ -37,6 +38,15 @@ li {
 li:hover {
    cursor: pointer;
    color: rgb(81, 130, 198);
+}
+
+/*** MAIN ***/
+main {
+   background: url('../assets/ingredients-background.jpg');
+   color: white;
+   padding: 15px 0 30px 0;
+   background-position: center;
+   background-size: contain;
 }
 
 /*** FOOTER ***/

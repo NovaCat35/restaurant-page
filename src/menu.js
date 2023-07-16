@@ -12,8 +12,13 @@ import chicken_tofu_pudding from "./assets/chicken_tofu_pudding.jpeg";
 import golden_crab from "./assets/golden_crab.jpeg";
 import scented_meat_balls from "./assets/scented_meat_balls.jpeg";
 
+let main = null;
+
 function createMenu() {
+	main = document.querySelector(".main-container");
 	clearMain();
+	removeHomeClassList(main)
+
 	const menuContainer = createElement("div", "menu-container");
 	const food1 = createCard("Golden Shrimp Balls", golden_shrimp_balls, "A deep-fried shrimp dish. The aroma assaults your senses, while the crispy potatoes bring out the light sweetness of the shrimp meat.");
 	const food2 = createCard("Jade Parcel", jade_parcel, "An exquisite-looking dish. The ham's sweetness is locked inside the fresh vegetables, drizzled with a spicy broth. Delicious is an understatement.");
@@ -74,15 +79,17 @@ function createElement(type, className) {
 }
 
 function clearMain() {
-	const main = document.querySelector(".main-container");
 	// Clear all elements in main
 	while (main.firstChild) {
 		main.removeChild(main.firstChild);
 	}
 }
 
+function removeHomeClassList(mainContainer) {
+	mainContainer.classList.remove('home')
+}
+
 function addMenuToMain(menu) {
-	const main = document.querySelector(".main-container");
 	main.appendChild(menu);
 }
 

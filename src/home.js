@@ -13,6 +13,7 @@ function createHomepage() {
 	} else {
 		mainContainer = createElement("main", "main-container");
 	}
+	setHomeClassList(mainContainer);
 	const header = createHeader();
 	const description = createInfo();
 	const orderBtn = createBtn();
@@ -26,6 +27,10 @@ function createHomepage() {
 	description.appendChild(orderBtn);
 	mainContainer.appendChild(description);
 	return mainContainer;
+}
+
+function setHomeClassList(mainContainer) {
+	mainContainer.classList.add('home')
 }
 
 function createHeader() {

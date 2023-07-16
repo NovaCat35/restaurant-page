@@ -10,3 +10,5 @@ This project was created with the use of webpack to get more familiar with DOM m
 ## Acknowledgement
 Pictures and restaurant inspiration from [Genshin Impact](https://genshin-impact.fandom.com/wiki/Genshin_Impact_Wiki)
 
+Background Images: https://www.freepik.com/vectors/food
+Cutting board: https://www.pexels.com/search/cutting%20board/

@@ -27,7 +27,7 @@ function createNav() {
 	list.appendChild(contact);
 
    const name = createElement("h2", 'restaurant-name')
-   name.textContent = "Taste_Of_Teyvat"
+   name.textContent = "Taste Of Teyvat"
 
    navbar.append(name)
    navbar.appendChild(list);
