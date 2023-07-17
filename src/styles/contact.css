@@ -2,6 +2,7 @@
    --info-background: rgba(216, 163, 110, 0.856);
    --contact-title-font: 'Bagel Fat One', cursive;   
    --contact-info-font: 'Allerta Stencil', sans-serif;
+   --break-line-color: rgb(134, 130, 122);
 }
 
 .contact-container {
@@ -18,7 +19,7 @@
 }
 
 .contact-line-break{
-   background: rgb(134, 130, 122);
+   background: var(--break-line-color);
    width: 120px;
    display: block; /* Added display property */
    height: 2px;
@@ -54,7 +55,7 @@
 
 /* Store Hours */
 .store-hr-container {
-   width: 50vw;
+   width: 80vw;
 }
 .schedule-container {
    display: flex;
@@ -64,11 +65,17 @@
 /* MAP */
 .map {
    margin-top: 20px;
-   width: 65vw;
+   width: 85vw;
    height: 350px;
    box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.433);
- }
+}
 
-/* @media screen and (min-width: 400px){
-   
-} */
+@media screen and (min-width: 500px){
+   .store-hr-container {
+      width: 50vw;
+   }
+   .map {
+      width: 65vw;
+      margin-bottom: 15px;
+   }
+}

@@ -4,6 +4,7 @@
    --footer-background: black;
    --nav-option-font: 'Courier Prime', monospace;
    --restaurant-name-font: 'Bona Nova', serif;
+   --footer-font: 'Rubik Pixels', cursive;
 }
 
 * {
@@ -28,7 +29,7 @@
 }
 .restaurant-name {
    font-family: var(--restaurant-name-font);
-   font-size: 2.2rem;
+   font-size: 1.2rem;
    text-shadow: 1px 3px 2px rgb(86, 92, 178);
 }
 ul.list {
@@ -53,7 +54,7 @@ li:hover {
 main {
    background: url('../assets/ingredients-background.jpg');
    color: white;
-   padding: 15px 0 30px 0;
+   padding: 10px 0 5px;
    background-position: center;
    background-size: contain;
 }
@@ -65,4 +66,16 @@ footer {
    color: white;
    background-color: var(--footer-background);
    padding: 10px;
+   font-family: var(--footer-font)
+}
+
+@media screen and (min-width: 550px) {
+   .restaurant-name {
+      font-size: 2.2rem;
+   }
+}
+@media screen and (min-width: 1000px) {
+   main{
+      padding: 10px 0 10px;
+   }
 }

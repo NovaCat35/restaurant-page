@@ -30,7 +30,7 @@ function createHomepage() {
 }
 
 function setHomeClassList(mainContainer) {
-	mainContainer.classList.add('home')
+	mainContainer.classList.add("home");
 }
 
 function createHeader() {
@@ -44,7 +44,12 @@ function createHeader() {
 function createInfo() {
 	const infoContainer = createElement("div", "info-container");
 	const info = createElement("p", "info");
-	info.textContent = "Welcome! We feature some of the best dishes on this side of the world.";
+	const line1 = document.createTextNode("Welcome and do come visit us!");
+	const lineBreak = document.createElement("br");
+	const line2 = document.createTextNode("We feature some of the best dishes on this side of the world.");
+	info.appendChild(line1);
+	info.appendChild(lineBreak);
+	info.appendChild(line2);
 	infoContainer.appendChild(info);
 	return infoContainer;
 }
@@ -52,7 +57,7 @@ function createInfo() {
 function createBtn() {
 	const btn = createElement("button", "order-btn");
 	btn.textContent = "Order Today!";
-	btn.addEventListener('click', createMenu)
+	btn.addEventListener("click", createMenu);
 	return btn;
 }
 

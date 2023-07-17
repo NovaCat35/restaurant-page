@@ -1,6 +1,6 @@
 :root {
 	--btn-background: rgb(252, 178, 16);
-   --btn-hover-background: rgb(218, 212, 204);
+   --btn-hover-background: rgb(246, 140, 10);
    --infos-background: rgba(0, 0, 0, 0.808);
    --title-font: 'Bagel Fat One', cursive;
    --info-font: 'Work Sans', sans-serif;
@@ -47,6 +47,7 @@ main.home{
 .xiangling {
 	width: 50vw;
 	border-radius: 10px;
+   transform: all .2s ease-in-out;
 }
 
 .order-btn {
@@ -66,4 +67,18 @@ main.home{
 }
 .order-btn:active {
    transform: translateY(5px);
+}
+
+@media screen and (min-width: 800px) {
+   .xiangling {
+      width: 40vw;
+   }
+}
+@media screen and (min-width: 1000px) {
+   .title{
+      margin: 5px 0 20px;
+   }
+   .xiangling {
+      width: 350px;
+   }
 }
