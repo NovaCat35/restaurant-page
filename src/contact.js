@@ -22,8 +22,11 @@ function createContact() {
 
 function createTitle() {
 	const title = createElement("h1", "contact-title");
+	const lineBreak = createElement("p", "contact-line-break");
 	title.textContent = "Contact Us";
+
 	contactContainer.appendChild(title);
+	contactContainer.appendChild(lineBreak);
 }
 
 function createMap() {

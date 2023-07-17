@@ -1,5 +1,7 @@
 :root {
-   --info-background: rgba(216, 163, 110, 0.792);
+   --info-background: rgba(216, 163, 110, 0.856);
+   --contact-title-font: 'Bagel Fat One', cursive;   
+   --contact-info-font: 'Allerta Stencil', sans-serif;
 }
 
 .contact-container {
@@ -12,9 +14,20 @@
 
 .contact-title{
    color: black;
+   font-family: var(--contact-title-font)
 }
 
+.contact-line-break{
+   background: rgb(134, 130, 122);
+   width: 120px;
+   display: block; /* Added display property */
+   height: 2px;
+   margin: 10px 0;
+}
+
+
 .contact-info-container {
+   font-family: var(--contact-info-font);
    display: flex;
    flex-direction: column;
    align-items: center;

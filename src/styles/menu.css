@@ -1,6 +1,9 @@
 :root {
 	--card-shadow: rgb(125, 125, 125);
 	--menu-border-color: rgb(193, 67, 67);
+	--card-background: rgb(236, 220, 220);
+	--dish-name-font: 'Lily Script One', cursive;
+	--description-font: 'Quicksand', sans-serif;
 }
 .menu-container {
 	margin: 20px;
@@ -10,21 +13,24 @@
 }
 
 .dish-name {
+	font-family: var(--dish-name-font);
 	font-size: 1.8rem;
-	text-shadow: 2px 3px 2px rgb(106, 8, 24);
+	text-shadow: 1px 2px 2px rgb(106, 8, 24);
 }
 
 .card-container {
 	color: white;
-	background: url('../assets/wooden-board2.jpg');
-	background-position: center;
-	background-size: cover;
+	background: var(--card-background);
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	box-shadow: 1px 1px 10px 0px var(--card-shadow);
+	box-shadow: 1px 1px 10px 1px var(--card-shadow);
 	border-radius: 10px;
 	border-left: 5px solid var(--menu-border-color);
 	padding: 30px;
 	text-align: center;
+}
+.description {
+	font-family: var(--description-font);
+	color: black;
 }

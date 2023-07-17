@@ -2,13 +2,14 @@
 :root {
    --navbar-background: black;
    --footer-background: black;
+   --nav-option-font: 'Courier Prime', monospace;
+   --restaurant-name-font: 'Bona Nova', serif;
 }
 
 * {
    box-sizing: border-box;
    margin: 0;
 }
-
 
 #content {
    min-height: 100vh;
@@ -19,11 +20,16 @@
 /*** NAV BAR ***/
 .navbar-container {
    background-color: var(--navbar-background);
-   padding: 30px;
+   padding: 20px 30px;
    color: white;
    display: flex;
    align-items: center;
    border-bottom: 5px solid goldenrod;
+}
+.restaurant-name {
+   font-family: var(--restaurant-name-font);
+   font-size: 2.2rem;
+   text-shadow: 1px 3px 2px rgb(86, 92, 178);
 }
 ul.list {
    list-style: none;
@@ -33,7 +39,8 @@ ul.list {
    gap: 10px;
 }
 li {
-   font-size: 1.1rem;
+   font-family: var(--nav-option-font);
+   font-size: 1.3rem;
    transition: all .3s ease-in-out;
 }
 li:hover {
