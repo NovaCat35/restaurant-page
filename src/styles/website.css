@@ -32,13 +32,27 @@
    font-size: 1.2rem;
    text-shadow: 1px 3px 2px rgb(86, 92, 178);
 }
-ul.list {
+.nav-list {
    list-style: none;
+   position: fixed;
+   left: 0;
+   top: 70px;
+   width: 100%;
+   background-color: rgb(0, 0, 0);
    display: flex;
-   justify-content: space-evenly;
-   flex: 1;
-   gap: 10px;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   transition: all 0.3s ease-in-out;
+   gap: 5px;
+   height: 0;
+   overflow: hidden;
 }
+.nav-list.active {
+   top: 70px;
+   height: 100px;
+}
+
 li {
    font-family: var(--nav-option-font);
    font-size: 1.3rem;
@@ -49,6 +63,30 @@ li:hover {
    color: rgb(80, 195, 191);
    transform: scale(1.2);
 }
+/*** Hamburger Tabs ***/
+.hamburger {
+   margin-left: auto;
+   display: block;
+   cursor: pointer;
+}
+.hamburger .bar {
+   display: block;
+   background-color: white;
+   width: 25px;
+   height: 3px;
+   margin: 5px;
+   transition: all 0.5s ease-in-out;
+}
+.hamburger.active .bar:nth-child(2)  {
+   opacity: 0;
+}
+.hamburger.active .bar:nth-child(1) {
+   transform: translateY(8px) rotate(45deg);
+}
+.hamburger.active .bar:nth-child(3) {
+   transform: translateY(-8px) rotate(-45deg);
+}
+
 
 /*** MAIN ***/
 main {
@@ -70,6 +108,21 @@ footer {
 }
 
 @media screen and (min-width: 550px) {
+   .navbar-container {
+      padding: 10px auto;
+   }
+   .nav-list {
+      position: static;
+      flex-direction: row;
+      justify-content: space-evenly;
+      flex: 1;
+      gap: 10px;
+      padding: 0;
+      height: 100%;
+   }
+   .hamburger {
+      display: none;
+   }
    .restaurant-name {
       font-size: 2.2rem;
    }

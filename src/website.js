@@ -14,8 +14,19 @@ export default function () {
 
 function createNav() {
 	const navbar = createElement("nav", "navbar-container");
-	const list = createElement("ul", "list");
+	const navTitle = createNavTitle();
+	const navOptions = createNavOptions();
+	const navHamburger = createHamburger();
 
+   navbar.append(navTitle)
+   navbar.appendChild(navOptions);
+	navbar.appendChild(navHamburger);
+
+	return navbar;
+}
+
+function createNavOptions() {
+	const list = createElement("ul", "nav-list");
 	const home = createElement("li", "nav-home");
 	const menu = createElement("li", "nav-menu");
 	const contact = createElement("li", "nav-contact");
@@ -25,14 +36,21 @@ function createNav() {
 	list.appendChild(home);
 	list.appendChild(menu);
 	list.appendChild(contact);
+	return list;
+}
 
+function createHamburger() {
+	const hamburger = createElement('div', 'hamburger');
+	for(let i = 0; i < 3; i++){
+		hamburger.appendChild(createElement('span', 'bar'));
+	}
+	return hamburger;
+}
+
+function createNavTitle() {
    const name = createElement("h2", 'restaurant-name')
    name.textContent = "Taste of Teyvat"
-
-   navbar.append(name)
-   navbar.appendChild(list);
-
-	return navbar;
+	return name;
 }
 
 function createMain() {

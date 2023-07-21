@@ -9,6 +9,29 @@ const home = document.querySelector(".nav-home");
 const menu = document.querySelector(".nav-menu");
 const contact = document.querySelector(".nav-contact");
 
-home.addEventListener("click", createHomepage);
-menu.addEventListener("click", createMenu);
-contact.addEventListener("click", createContact);
+const navMenu = document.querySelector(".nav-list");
+const hamburger = document.querySelector(".hamburger");
+
+function removeActiveClass() {
+	hamburger.classList.remove("active");
+	navMenu.classList.remove("active");
+}
+
+home.addEventListener("click", () => {
+	createHomepage();
+	removeActiveClass();
+});
+
+menu.addEventListener("click", () => {
+	createMenu();
+	removeActiveClass();
+});
+
+contact.addEventListener("click", () => {
+	createContact();
+	removeActiveClass();
+});
+hamburger.addEventListener("click", () => {
+	hamburger.classList.toggle("active");
+	navMenu.classList.toggle("active");
+});

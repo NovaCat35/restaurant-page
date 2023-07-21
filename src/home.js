@@ -44,7 +44,7 @@ function createHeader() {
 function createInfo() {
 	const infoContainer = createElement("div", "info-container");
 	const info = createElement("p", "info");
-	const line1 = document.createTextNode("Welcome and do come visit us!");
+	const line1 = document.createTextNode("Welcome and please come visit us!");
 	const lineBreak = document.createElement("br");
 	const line2 = document.createTextNode("We feature some of the best dishes on this side of the world.");
 	info.appendChild(line1);
