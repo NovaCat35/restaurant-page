@@ -49,19 +49,36 @@
    overflow: hidden;
 }
 .nav-list.active {
-   top: 70px;
    height: 100px;
 }
 
 li {
+   position: relative;
    font-family: var(--nav-option-font);
    font-size: 1.3rem;
    transition: all .3s ease-in-out;
 }
 li:hover {
    cursor: pointer;
-   color: rgb(80, 195, 191);
+   color: rgb(155, 199, 246);
    transform: scale(1.2);
+}
+li::after {
+   content: '';
+   position: absolute;
+   left: 0;
+   bottom: 0;
+   top: 23px;
+   height: 3px;
+   background: rgb(47, 78, 235);
+   transition: 0.25s ease-out;
+   width: 0;
+}
+li.active::after {
+   width: 100%;
+}
+li:not(.active):hover:after {
+   width: 100%;
 }
 /*** Hamburger Tabs ***/
 .hamburger {
@@ -108,6 +125,14 @@ footer {
 }
 
 @media screen and (min-width: 550px) {
+   li {
+      display: flex;
+      align-items: center;
+      height: 40px;
+   }
+   li::after{
+      top: 33px;
+   }
    .navbar-container {
       padding: 10px auto;
    }
@@ -125,6 +150,9 @@ footer {
    }
    .restaurant-name {
       font-size: 2.2rem;
+   }
+   .nav-list.active {
+      height: auto;
    }
 }
 @media screen and (min-width: 1000px) {

@@ -12,26 +12,39 @@ const contact = document.querySelector(".nav-contact");
 const navMenu = document.querySelector(".nav-list");
 const hamburger = document.querySelector(".hamburger");
 
-function removeActiveClass() {
-	hamburger.classList.remove("active");
-	navMenu.classList.remove("active");
-}
+setActiveClass(home);
 
 home.addEventListener("click", () => {
 	createHomepage();
 	removeActiveClass();
+	setActiveClass(home);
 });
 
 menu.addEventListener("click", () => {
 	createMenu();
 	removeActiveClass();
+	setActiveClass(menu);
 });
 
 contact.addEventListener("click", () => {
 	createContact();
 	removeActiveClass();
+	setActiveClass(contact);
 });
+
 hamburger.addEventListener("click", () => {
 	hamburger.classList.toggle("active");
 	navMenu.classList.toggle("active");
 });
+
+function removeActiveClass() {
+   home.classList.remove("active");
+   menu.classList.remove("active");
+   contact.classList.remove("active");
+   hamburger.classList.remove("active");
+   navMenu.classList.remove("active");
+}
+
+function setActiveClass(navTab) {
+   navTab.classList.add("active");
+}

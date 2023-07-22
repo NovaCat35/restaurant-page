@@ -51,6 +51,7 @@ main.home{
 }
 
 .order-btn {
+   color: black;
 	background-color: var(--btn-background);
 	border: none;
    border-radius: 10px;
