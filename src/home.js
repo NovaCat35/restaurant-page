@@ -110,7 +110,6 @@ function createSliderDotNav() {
 }
 //  ----------------------------------------
 
-
 function setHomeClassList(mainContainer) {
 	mainContainer.classList.add("home");
 }

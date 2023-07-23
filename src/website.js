@@ -1,6 +1,6 @@
 import createHomepage from "./home.js";
+import githubImg from "./assets/github.png";
 import "./styles/website.css";
-
 
 export default function () {
 	const content = document.querySelector("#content");
@@ -18,8 +18,8 @@ function createNav() {
 	const navOptions = createNavOptions();
 	const navHamburger = createHamburger();
 
-   navbar.append(navTitle)
-   navbar.appendChild(navOptions);
+	navbar.append(navTitle);
+	navbar.appendChild(navOptions);
 	navbar.appendChild(navHamburger);
 
 	return navbar;
@@ -40,16 +40,16 @@ function createNavOptions() {
 }
 
 function createHamburger() {
-	const hamburger = createElement('div', 'hamburger');
-	for(let i = 0; i < 3; i++){
-		hamburger.appendChild(createElement('span', 'bar'));
+	const hamburger = createElement("div", "hamburger");
+	for (let i = 0; i < 3; i++) {
+		hamburger.appendChild(createElement("span", "bar"));
 	}
 	return hamburger;
 }
 
 function createNavTitle() {
-   const name = createElement("h2", 'restaurant-name')
-   name.textContent = "Taste of Teyvat"
+	const name = createElement("h2", "restaurant-name");
+	name.textContent = "Taste of Teyvat";
 	return name;
 }
 
@@ -61,7 +61,8 @@ function createFooter() {
 	const footer = createElement("footer", "footer-container");
 	const footerDescription = createElement("p", "credit");
 	footerDescription.textContent = "Made with ❤️ by NovaCat35";
-   footer.appendChild(footerDescription);
+	footer.appendChild(footerDescription);
+	footer.appendChild(createGithubLink());
 	return footer;
 }
 
@@ -69,4 +70,20 @@ function createElement(type, className) {
 	const element = document.createElement(type);
 	element.classList.add(className);
 	return element;
+}
+
+function createImg(imgSrc) {
+	const img = createElement("img", "image");
+	img.src = imgSrc;
+	return img;
+}
+
+function createGithubLink() {
+	const link = createElement('a', 'github-link')
+	link.href = 'https://github.com/NovaCat35/restaurant-page';
+
+	const img = createImg(githubImg);
+	link.appendChild(img);
+
+	return link;
 }
