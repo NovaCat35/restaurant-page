@@ -4,6 +4,12 @@
    --infos-background: rgba(0, 0, 0, 0.808);
    --title-font: 'Bagel Fat One', cursive;
    --info-font: 'Work Sans', sans-serif;
+   --img-slider-background: #1c1c1c;
+   --img-slider-border: #616161;
+   --img-slider-left-right-btn-background: rgba(88,88,88,.2);
+   --img-slider-left-right-btn-font: 'Cabin Sketch', cursive;
+   --img-slider-left-right-hover-background: rgba(88, 88, 89,.8);
+   --dot-color: rgba(255, 255, 255, 0.9);
 }
 
 /*** MAIN ***/
@@ -23,7 +29,7 @@ main.home{
    text-align: center;
    font-size: 2.5rem;
    font-family: var(--title-font);
-   margin: 15px 0 20px;
+   margin: 5px 0 5px;
    text-shadow: 1px 2px 7px rgb(29, 130, 163);
 }
 .info-container {
@@ -44,10 +50,102 @@ main.home{
    margin-bottom: 20px;
    font-family: var(--info-font)
 }
-.xiangling {
-	width: 50vw;
-	border-radius: 10px;
-   transform: all .2s ease-in-out;
+/*** IMG Slider ***/
+.img-slider-container {
+   margin-top: 20px;
+   position: relative;
+   width: 70%;
+   height: 0;
+   padding-bottom: 38%;
+   user-select: none;
+   background-color: var(--img-slider-background);
+   border: solid 10px var(--img-slider-border);
+   border-radius:10px ; 
+   overflow: hidden;
+}
+.slide-img {
+   position: absolute;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   z-index: -1;
+   width: 100%;
+   height: 100%;
+}
+.slide-img img {
+   object-fit: contain;
+   height: 100%;
+   width: 75%;
+}
+/* IMG Slider RADIO BTNS */
+#i1, #i2, #i3, #i4, #i5 {
+   display: none;
+}
+/* Buttons within the img (this is use as label for the radio btns) */
+.prev, .next {
+   width: 12%;
+   height: 100%;
+   position: absolute;
+   top: 0;
+   background: var(--img-slider-left-right-btn-background);
+   z-index: 99;
+   cursor: pointer;
+   color:rgba(244, 244, 244,.6);   
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   font-family: var(--img-slider-left-right-btn-font);
+   font-size: 10vw;
+}
+.prev:hover, .next:hover {
+   transition: .3s;
+   background-color: var(--img-slider-left-right-hover-background);
+   color: #ffffff; 
+}
+.prev {
+   left: 0;
+}
+.next {
+   right: 0
+}
+/* Slider nav dots */
+.slider-nav {
+   width: 100%;
+   height: 11px;
+   bottom: 12%;
+   position: absolute;
+   text-align: center;
+   z-index: 99;
+}
+.dots {
+   top: 15px;
+   width: 10px;
+   height: 10px;
+   margin: 0 4px;
+   position: relative;
+   border-radius: 50%;
+   display: inline-block;
+   background-color: rgba(0, 0, 0, 0.6);
+   transition: .4s;
+}
+.dots:hover {
+	cursor: pointer;
+	background-color: var(--dot-color);
+	transition: .25s
+}
+#i1:checked ~ #img1,
+#i2:checked ~ #img2,
+#i3:checked ~ #img3,
+#i4:checked ~ #img4,
+#i5:checked ~ #img5 {
+   z-index: 9;
+}
+#i1:checked ~ .slider-nav #dot1,
+#i2:checked ~ .slider-nav #dot2,
+#i3:checked ~ .slider-nav #dot3,
+#i4:checked ~ .slider-nav #dot4,
+#i5:checked ~ .slider-nav #dot5 {
+   background: var(--dot-color);
 }
 
 .order-btn {
@@ -71,15 +169,14 @@ main.home{
 }
 
 @media screen and (min-width: 800px) {
-   .xiangling {
-      width: 40vw;
+   .img-slider-container {
+      width: 60vw;
+      padding-bottom: 30%;
    }
 }
 @media screen and (min-width: 1000px) {
    .title{
-      margin: 5px 0 20px;
-   }
-   .xiangling {
-      width: 350px;
+      margin: 10px 0 5px;
+      font-size: 3rem;
    }
 }
