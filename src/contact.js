@@ -12,6 +12,7 @@ function createContact() {
 
 	clearMain(mainContainer);
 	removeHomeClassList(mainContainer)
+	removeMenuClassList(mainContainer)
    createTitle()
    createPhoneInfo()
    createStoreHrInfo();
@@ -62,6 +63,10 @@ function createMap() {
 
 function removeHomeClassList(mainContainer) {
 	mainContainer.classList.remove('home')
+}
+
+function removeMenuClassList(mainContainer) {
+	mainContainer.classList.remove('menu')
 }
 
 function createStoreHrInfo() {

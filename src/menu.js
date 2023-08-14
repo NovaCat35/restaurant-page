@@ -18,6 +18,7 @@ function createMenu() {
 	main = document.querySelector(".main-container");
 	clearMain();
 	removeHomeClassList(main)
+	setMenuClassList(main);
 
 	const menuContainer = createElement("div", "menu-container");
 	const food1 = createCard("Golden Shrimp Balls", golden_shrimp_balls, "A deep-fried shrimp dish. The aroma assaults your senses, while the crispy potatoes bring out the light sweetness of the shrimp meat.");
@@ -87,6 +88,10 @@ function clearMain() {
 
 function removeHomeClassList(mainContainer) {
 	mainContainer.classList.remove('home')
+}
+
+function setMenuClassList(mainContainer) {
+	mainContainer.classList.add("menu");
 }
 
 function addMenuToMain(menu) {

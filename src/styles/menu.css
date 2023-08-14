@@ -5,6 +5,11 @@
 	--dish-name-font: 'Lily Script One', cursive;
 	--description-font: 'Quicksand', sans-serif;
 }
+
+main.menu {
+	background: url("../assets/clear-background.jpg");
+}
+
 .menu-container {
 	margin: 20px;
 	display: grid;

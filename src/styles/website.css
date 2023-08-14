@@ -52,6 +52,7 @@
 }
 .nav-list.active {
 	height: 100px;
+	padding: 0;
 }
 
 li {

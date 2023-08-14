@@ -16,11 +16,15 @@ function createHomepage() {
 	} else {
 		mainContainer = createElement("main", "main-container");
 	}
+
+	removeMenuClassList(mainContainer)
 	setHomeClassList(mainContainer);
+	
 	const header = createHeader();
 	const description = createInfo();
 	const orderBtn = createBtn();
 	const imgSlider = createImgSlider();
+	startAutoSlider(imgSlider);
 
 	mainContainer.appendChild(header);
 	mainContainer.appendChild(imgSlider);
@@ -108,6 +112,33 @@ function createSliderDotNav() {
 	}
 	return sliderNav;
 }
+
+// Add this function to start the automatic slider
+function startAutoSlider(sliderContainer) {
+	let currentIndex = 0;
+	const totalImages = 5; // Total number of images in the slider
+ 
+	// Function to advance the slider
+	function advanceSlider() {
+	  currentIndex = (currentIndex + 1) % totalImages;
+	  const radioBtnId = `i${currentIndex + 1}`;
+	  const radioBtn = document.getElementById(radioBtnId);
+	  radioBtn.checked = true;
+	}
+ 
+	// Start the automatic slider with a 5-second interval
+	let intervalId = setInterval(advanceSlider, 5000);
+ 
+	// Clear the interval when the slider container is not in view
+	sliderContainer.addEventListener("mouseenter", () => {
+	  clearInterval(intervalId);
+	});
+ 
+	// Resume the interval when the slider container is in view
+	sliderContainer.addEventListener("mouseleave", () => {
+	  intervalId = setInterval(advanceSlider, 5000);
+	});
+ }
 //  ----------------------------------------
 
 function setHomeClassList(mainContainer) {
@@ -154,6 +185,10 @@ function clearMain() {
 	while (main.firstChild) {
 		main.removeChild(main.firstChild);
 	}
+}
+
+function removeMenuClassList(mainContainer) {
+	mainContainer.classList.remove('menu')
 }
 
 export default createHomepage;
