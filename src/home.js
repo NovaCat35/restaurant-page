@@ -3,8 +3,10 @@ import foodImg2 from "./assets/xiangling-shorts.jpeg";
 import foodImg3 from "./assets/chongyun-shorts.jpeg";
 import foodImg4 from "./assets/jean-shorts.png";
 import foodImg5 from "./assets/tartaglia-shorts.png";
-import createMenu from "./menu.js";
+import {getMenuPage} from './index.js'
 import "./styles/home.css";
+
+let intervalId = null;
 
 function createHomepage() {
 	// Check if we already initialize the homepage with main, otherwise we don't need to make a new main
@@ -17,9 +19,9 @@ function createHomepage() {
 		mainContainer = createElement("main", "main-container");
 	}
 
-	removeMenuClassList(mainContainer)
+	removeMenuClassList(mainContainer);
 	setHomeClassList(mainContainer);
-	
+
 	const header = createHeader();
 	const description = createInfo();
 	const orderBtn = createBtn();
@@ -117,28 +119,33 @@ function createSliderDotNav() {
 function startAutoSlider(sliderContainer) {
 	let currentIndex = 0;
 	const totalImages = 5; // Total number of images in the slider
- 
+
 	// Function to advance the slider
 	function advanceSlider() {
-	  currentIndex = (currentIndex + 1) % totalImages;
-	  const radioBtnId = `i${currentIndex + 1}`;
-	  const radioBtn = document.getElementById(radioBtnId);
-	  radioBtn.checked = true;
+		currentIndex = (currentIndex + 1) % totalImages;
+		const radioBtnId = `i${currentIndex + 1}`;
+		const radioBtn = document.getElementById(radioBtnId);
+		radioBtn.checked = true;
 	}
- 
-	// Start the automatic slider with a 5-second interval
-	let intervalId = setInterval(advanceSlider, 5000);
- 
+
+	// Start the automatic slider with a 5-second interval if intervalId is not set (this is to avoid having conflicting intervals all going at once)
+	if (!intervalId) {
+		intervalId = setInterval(advanceSlider, 5000);
+	}
+
 	// Clear the interval when the slider container is not in view
 	sliderContainer.addEventListener("mouseenter", () => {
-	  clearInterval(intervalId);
+		clearInterval(intervalId);
+		intervalId = null; // Reset intervalId
 	});
- 
+
 	// Resume the interval when the slider container is in view
 	sliderContainer.addEventListener("mouseleave", () => {
-	  intervalId = setInterval(advanceSlider, 5000);
+		if (!intervalId) {
+			intervalId = setInterval(advanceSlider, 5000);
+		}
 	});
- }
+}
 //  ----------------------------------------
 
 function setHomeClassList(mainContainer) {
@@ -169,8 +176,12 @@ function createInfo() {
 function createBtn() {
 	const btn = createElement("button", "order-btn");
 	btn.textContent = "Order Today!";
-	btn.addEventListener("click", createMenu);
+	btn.addEventListener("click", exitToMenu);
 	return btn;
+}
+
+function exitToMenu() {
+	getMenuPage();
 }
 
 function createElement(type, className) {
@@ -188,7 +199,7 @@ function clearMain() {
 }
 
 function removeMenuClassList(mainContainer) {
-	mainContainer.classList.remove('menu')
+	mainContainer.classList.remove("menu");
 }
 
 export default createHomepage;

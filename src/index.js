@@ -14,28 +14,34 @@ const hamburger = document.querySelector(".hamburger");
 
 setActiveClass(home);
 
-home.addEventListener("click", () => {
-	createHomepage();
-	removeActiveClass();
-	setActiveClass(home);
-});
+home.addEventListener("click", getHomePage);
 
-menu.addEventListener("click", () => {
-	createMenu();
-	removeActiveClass();
-	setActiveClass(menu);
-});
+menu.addEventListener("click", getMenuPage);
 
-contact.addEventListener("click", () => {
-	createContact();
-	removeActiveClass();
-	setActiveClass(contact);
-});
+contact.addEventListener("click", getContactPage);
 
 hamburger.addEventListener("click", () => {
 	hamburger.classList.toggle("active");
 	navMenu.classList.toggle("active");
 });
+
+function getHomePage() {
+	createHomepage();
+	removeActiveClass();
+	setActiveClass(home);
+}
+
+function getMenuPage() {
+	createMenu();
+	removeActiveClass();
+	setActiveClass(menu);
+}
+
+function getContactPage() {
+	createContact();
+	removeActiveClass();
+	setActiveClass(contact);
+}
 
 function removeActiveClass() {
    home.classList.remove("active");
@@ -48,3 +54,5 @@ function removeActiveClass() {
 function setActiveClass(navTab) {
    navTab.classList.add("active");
 }
+
+export {getMenuPage}

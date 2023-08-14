@@ -19,7 +19,8 @@ This project was created with the use of Webpack. Having built this website with
 
 ## Special Features
 - A Google map of my family's restaurant, which already has its own website so I decided to base this webpage on foods from one of my favorite games ^-^
-- It's Responsive!
+- Automatic image slider
+- It's responsive!
 
 ## Acknowledgement
 Pictures and restaurant inspiration from [Genshin Impact](https://genshin-impact.fandom.com/wiki/Genshin_Impact_Wiki)
