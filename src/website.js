@@ -1,4 +1,4 @@
-import createHomepage from "./home.js";
+import { createHomepage } from "./home.js";
 import githubImg from "./assets/github.png";
 import "./styles/website.css";
 
@@ -79,8 +79,8 @@ function createImg(imgSrc) {
 }
 
 function createGithubLink() {
-	const link = createElement('a', 'github-link')
-	link.href = 'https://github.com/NovaCat35/restaurant-page';
+	const link = createElement("a", "github-link");
+	link.href = "https://github.com/NovaCat35/restaurant-page";
 
 	const img = createImg(githubImg);
 	link.appendChild(img);

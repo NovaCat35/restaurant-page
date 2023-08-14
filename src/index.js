@@ -1,5 +1,5 @@
 import initWebpage from "./website.js";
-import createHomepage from "./home.js";
+import { createHomepage, isHomePageActive } from "./home.js";
 import createMenu from "./menu.js";
 import createContact from "./contact.js";
 
@@ -32,27 +32,29 @@ function getHomePage() {
 }
 
 function getMenuPage() {
+	isHomePageActive = false;
 	createMenu();
 	removeActiveClass();
 	setActiveClass(menu);
 }
 
 function getContactPage() {
+	isHomePageActive = false;
 	createContact();
 	removeActiveClass();
 	setActiveClass(contact);
 }
 
 function removeActiveClass() {
-   home.classList.remove("active");
-   menu.classList.remove("active");
-   contact.classList.remove("active");
-   hamburger.classList.remove("active");
-   navMenu.classList.remove("active");
+	home.classList.remove("active");
+	menu.classList.remove("active");
+	contact.classList.remove("active");
+	hamburger.classList.remove("active");
+	navMenu.classList.remove("active");
 }
 
 function setActiveClass(navTab) {
-   navTab.classList.add("active");
+	navTab.classList.add("active");
 }
 
-export {getMenuPage}
+export { getMenuPage };

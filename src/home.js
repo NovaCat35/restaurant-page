@@ -3,12 +3,15 @@ import foodImg2 from "./assets/xiangling-shorts.jpeg";
 import foodImg3 from "./assets/chongyun-shorts.jpeg";
 import foodImg4 from "./assets/jean-shorts.png";
 import foodImg5 from "./assets/tartaglia-shorts.png";
-import {getMenuPage} from './index.js'
+import { getMenuPage } from "./index.js";
 import "./styles/home.css";
 
 let intervalId = null;
+let isHomePageActive = false;
 
 function createHomepage() {
+	isHomePageActive = true;
+
 	// Check if we already initialize the homepage with main, otherwise we don't need to make a new main
 	const elementExists = document.querySelector(".main-container") !== null;
 	let mainContainer = null;
@@ -115,17 +118,19 @@ function createSliderDotNav() {
 	return sliderNav;
 }
 
-// Add this function to start the automatic slider
+// Add this function to start the automatic slider !!
 function startAutoSlider(sliderContainer) {
 	let currentIndex = 0;
-	const totalImages = 5; // Total number of images in the slider
+	const totalImages = 5;
 
 	// Function to advance the slider
 	function advanceSlider() {
 		currentIndex = (currentIndex + 1) % totalImages;
 		const radioBtnId = `i${currentIndex + 1}`;
 		const radioBtn = document.getElementById(radioBtnId);
-		radioBtn.checked = true;
+		if (isHomePageActive) {
+			radioBtn.checked = true; // Only update radio button if the homepage is active
+		}
 	}
 
 	// Start the automatic slider with a 5-second interval if intervalId is not set (this is to avoid having conflicting intervals all going at once)
@@ -202,4 +207,4 @@ function removeMenuClassList(mainContainer) {
 	mainContainer.classList.remove("menu");
 }
 
-export default createHomepage;
+export { createHomepage, isHomePageActive };
